@@ -1,81 +1,46 @@
-.slider{
+.star_rating{
 	position: relative;
-	width: 100%;
+	display: inline-block;
+	width: 95px; height: 16px;
+	font-size: 0;
+	white-space: nowrap;
 	overflow: hidden;
+	background-position: 0 -18px;
 }
-	/*Переключатели слайдов =)*/
-	.slider > .slider__switch[type="radio"]{
-		position: absolute;
-		visibility: hidden;
-		z-index: 0;
+	.star_rating, .star_rating i{
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAiCAYAAAC9duLEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjIyOTlERDMwRTM0MTFFNDk1QTFGM0VBODRBNTdDODUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjIyOTlERDQwRTM0MTFFNDk1QTFGM0VBODRBNTdDODUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGMjI5OUREMTBFMzQxMUU0OTVBMUYzRUE4NEE1N0M4NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGMjI5OUREMjBFMzQxMUU0OTVBMUYzRUE4NEE1N0M4NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiAQKi4AAAMfSURBVHjarFRNaBNBFH67Nk2TLpJ/UbAtRJKo9SeFkqARUfAQBEWpggeTU6HePNVWivRH9NBb0ZOXCsWzt0jE2sgecvAeEghNUpNqGmPSJsY2mvVNNtvUZTe70j74mHkzy7ffzHvzUYuLi6AQU4incpvBYHB3TisQDVt6V+dwvAAqQols0mldbo77JTuFuGm3sGR+HXF2P2QTnuNLNAUcePteUyRXIutqjUcQA4i+1khwz2n9CMgFDssniGaCd3CthFhFpFtIIb4JZBRW87lOsznR270BTHcRUQBGW0CCFaCoP7t/5bhDkChchsq2FSo75iaqO1ao1Q/PY0XHBWWTuPCzz/B51mX9AAZ9tqlGHITYaVtu7pV/HYVY/hoUqvYZJJoWH3MuvnG1iFjwO5/RNiYhYhLkAeQrJyAUnyK/e4hYkCvAS8T9UPxxvYFH+ic4HuSoSPQbs4CYSKqabxDh3OZgWxHVVpfbOk1m7xFLaltj0KD70la0R51RlyGzc2r7zKztqvQz3d+bUtI/hiEcfwQpHEmu15QAK3+s1UqyfSaE26RPQ7J4EdjVUaLrLeLF+tbJsQjAiG/gFWXSpSFbP+PG9XdKytwaepsQsa3HfRtBHuddkrOp0RWa770hNcfsyZSGbuF4CREV7ZH8ylr5/A3ynRQZxXEcHFQcLJmC03Z02f9x2mGLxaLaZZXIJp1Op2qX7UTGu6zdrtplO5FNeDwemqIo8Hq9qlxWeAHSLssfERwOB0SjUUWXFci+4kUDwzC7IAREFW+KFAQCga5EIvGgUqmAgGq1CrVabR4/Gd9L9sRsNs+6XC4wGAzS/YOEgtJyuQyxWAwKhcIMptNiZXPxeLyIWPD7/bTNZpO9k3w+D6FQSNJl9xaAd9lQqN5oNCSJyEvBfVmXFVeTd9lcTpKstS7rslKtMSh3b0ajsaPLisnMWq22n1STRDqdhnA4DKlUqpnr9XrQ6XSyLit2WrfJZIJkMgksy7Zddn19LBKJjPh8PorsZ7NZSZcVK3NrNBpCJO2yLLtC07Ssy4rJejKZTGeXXVuTdVkSfwUYADp/JUY4tDb/AAAAAElFTkSuQmCC);
+		background-repeat: repeat-x;
 	}
-
-	/*Слайд*/
-	.slider__item{
+	.star_rating input[type="radio"]{
 		position: absolute;
 		top: 0; left: 0;
-		width: 100%; height: 100%;
-		opacity: 0;
-		overflow: hidden;
-		-webkit-transition: all 0.5s linear;
-		-moz-transition: all 0.5s linear;
-		-ms-transition: all 0.5s linear;
-		-o-transition: all 0.5s linear;
-		transition: all 0.5s linear;
-		z-index: 0;
-		
-		/*Фикс на случай если нужно что бы слайд был ссылкой*/
+		width: 0; height: 0;
+		visibility: hidden;
+	}
+	.star_rating label{
+		position: relative;
+		display: inline-block;
+		width: 20%; height: 16px;
+		cursor: pointer;
+		z-index: 1;
+	}
+	.star_rating i{
 		display: block;
-		text-decoration: none;
-		border: none;
-	}
-		.slider__switch[type="radio"]:checked + .slider__item{
-			opacity: 1;
-			z-index: 2;
-		}
-
-	/*Вложения в слайд img/emmbed*/
-	.slider__item img,
-	.slider__item iframe{
-		width: 100%
-	}
-
-	/*Блок переключателей*/
-	.slider__controls{
 		position: absolute;
-		height: 24px;
-		z-index: 9;
+		top: 0; left: 0;
+		width: 20%; height: 16px;
+		z-index: 0;
+		opacity: 0;
+		-webkit-transition: 0.5s ease all ;
+		-o-transition: 0.5s ease all ;
+		transition: 0.5s ease all ;
 	}
-		.slider__switch_rotary{
-			position: relative;
-			width: 12px; height: 12px;
-			border-radius: 60px;
-			display: inline-block;
-			background-image: linear-gradient(to bottom, rgb(255, 255, 255) 12%, rgb(228, 228, 228) 50%);
-			box-shadow: 1px 1px 3px 0px rgba(50, 50, 50, 0.75);
-		}
-			.slider__switch_rotary:hover{
-				cursor: pointer;
-			    background-image: linear-gradient(rgb(228, 228, 228) 50%, rgb(255, 255, 255) 100%);
-			}
-	/*Позицианируем переключатели*/
-	.slider__controls._top{top: 0;}
-	.slider__controls._right{right: 10px;}	
-	.slider__controls._left{left: 10px;}
-	.slider__controls._bottom{bottom: 0;}
-
-	/*Не универсальный блок CSS для отображения активности выбранного переключателя*/
-	/*Я даже кажется придумал как реализовать универсальынй вариант*/
-	.slider__switch:nth-of-type(1):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(1),
-	.slider__switch:nth-of-type(2):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(2),
-	.slider__switch:nth-of-type(3):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(3),
-	.slider__switch:nth-of-type(4):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(4),
-	.slider__switch:nth-of-type(5):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(5){
-		background: #fff;
+		.star_rating i ~ i{width: 40%;}
+			.star_rating i ~ i ~ i{width: 60%;}
+				.star_rating i ~ i ~ i ~ i{width: 80%;}
+					.star_rating i ~ i ~ i ~ i ~ i{width: 100%;
+					}
+	.star_rating input[type="radio"]:checked + label + i,
+	.star_rating label:hover + i{
+		opacity: 1;
 	}
-
-/*Preview*/
-.preview{
-	margin: 0 auto;
-	width: 900px;
-}
