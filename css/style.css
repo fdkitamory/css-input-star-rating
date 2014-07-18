@@ -1,0 +1,81 @@
+.slider{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+	/*Переключатели слайдов =)*/
+	.slider > .slider__switch[type="radio"]{
+		position: absolute;
+		visibility: hidden;
+		z-index: 0;
+	}
+
+	/*Слайд*/
+	.slider__item{
+		position: absolute;
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		opacity: 0;
+		overflow: hidden;
+		-webkit-transition: all 0.5s linear;
+		-moz-transition: all 0.5s linear;
+		-ms-transition: all 0.5s linear;
+		-o-transition: all 0.5s linear;
+		transition: all 0.5s linear;
+		z-index: 0;
+		
+		/*Фикс на случай если нужно что бы слайд был ссылкой*/
+		display: block;
+		text-decoration: none;
+		border: none;
+	}
+		.slider__switch[type="radio"]:checked + .slider__item{
+			opacity: 1;
+			z-index: 2;
+		}
+
+	/*Вложения в слайд img/emmbed*/
+	.slider__item img,
+	.slider__item iframe{
+		width: 100%
+	}
+
+	/*Блок переключателей*/
+	.slider__controls{
+		position: absolute;
+		height: 24px;
+		z-index: 9;
+	}
+		.slider__switch_rotary{
+			position: relative;
+			width: 12px; height: 12px;
+			border-radius: 60px;
+			display: inline-block;
+			background-image: linear-gradient(to bottom, rgb(255, 255, 255) 12%, rgb(228, 228, 228) 50%);
+			box-shadow: 1px 1px 3px 0px rgba(50, 50, 50, 0.75);
+		}
+			.slider__switch_rotary:hover{
+				cursor: pointer;
+			    background-image: linear-gradient(rgb(228, 228, 228) 50%, rgb(255, 255, 255) 100%);
+			}
+	/*Позицианируем переключатели*/
+	.slider__controls._top{top: 0;}
+	.slider__controls._right{right: 10px;}	
+	.slider__controls._left{left: 10px;}
+	.slider__controls._bottom{bottom: 0;}
+
+	/*Не универсальный блок CSS для отображения активности выбранного переключателя*/
+	/*Я даже кажется придумал как реализовать универсальынй вариант*/
+	.slider__switch:nth-of-type(1):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(1),
+	.slider__switch:nth-of-type(2):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(2),
+	.slider__switch:nth-of-type(3):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(3),
+	.slider__switch:nth-of-type(4):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(4),
+	.slider__switch:nth-of-type(5):checked ~ .slider__controls .slider__switch_rotary:nth-of-type(5){
+		background: #fff;
+	}
+
+/*Preview*/
+.preview{
+	margin: 0 auto;
+	width: 900px;
+}
